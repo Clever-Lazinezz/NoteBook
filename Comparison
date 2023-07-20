@@ -1,0 +1,15 @@
+import pandas as pd
+
+def percentage_of_common_rows(df1, df2, column_name):
+    set_df1 = set(df1[column_name])
+    set_df2 = set(df2[column_name])
+
+    common_rows = set_df1.intersection(set_df2)
+    percentage = (len(common_rows) / len(set_df1)) * 100
+
+    return percentage
+
+# Example usage:
+# Replace 'df1' and 'df2' with your DataFrames, and 'POLICY' with the column name to compare.
+percentage = percentage_of_common_rows(df1, df2, 'POLICY')
+print(f"The percentage of df1['POLICY'] rows that are present in df2['POLICY'] is: {percentage:.2f}%")
